@@ -16,8 +16,7 @@
 
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-            <router-link class="navbar-item" :to='{name: "Hola"}'>Profesores</router-link></button>
+            <button type="button" class="btn btn-primary btn-lg btn-block"></button>
             <button type="button" class="btn btn-secondary btn-lg btn-block">Alumnos</button>
             <button type="button" class="btn btn-primary btn-lg btn-block">Clases</button>
 

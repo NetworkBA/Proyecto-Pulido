@@ -10,11 +10,19 @@ export default new Router(
         path: '/Principal',
         name: 'Principal',
         component: () => import("./views/Vistaprincipal.vue"),
-        props: true    },
+        props: true
+      },
       {
         path: '/Profesor',
         name: 'profesor',
-        component: {template:'<h1>Holas Como estas</h1'}
+        component: () => import("./components/ExampleComponent.vue"),
+        props: true
+    },
+    {
+      path: '/Home',
+      name: 'Principal',
+      component: () => import("./views/Vistaprincipal.vue"),
+      props: true
     },
   ],
   mode: 'history'

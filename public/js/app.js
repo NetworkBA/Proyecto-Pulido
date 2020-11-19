@@ -2058,7 +2058,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted Contenido.');
@@ -38485,68 +38484,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", { staticClass: "main" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "card" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary btn-lg btn-block",
-            attrs: { type: "button" }
-          },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navbar-item", attrs: { to: { name: "Hola" } } },
-              [_vm._v("Profesores")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-secondary btn-lg btn-block",
-            attrs: { type: "button" }
-          },
-          [_vm._v("Alumnos")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary btn-lg btn-block",
-            attrs: { type: "button" }
-          },
-          [_vm._v("Clases")]
-        )
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "breadcrumb" }, [
-      _c("li", { staticClass: "breadcrumb-item active" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Sistema Gestor Escolar")])
+    return _c("main", { staticClass: "main" }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Sistema Gestor Escolar")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", [_vm._v("Listado de Opciones")]),
+            _c("br")
+          ]),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "btn btn-primary btn-lg btn-block",
+            attrs: { type: "button" }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary btn-lg btn-block",
+              attrs: { type: "button" }
+            },
+            [_vm._v("Alumnos")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-lg btn-block",
+              attrs: { type: "button" }
+            },
+            [_vm._v("Clases")]
+          )
+        ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h2", [_vm._v("Listado de Opciones")]),
-      _c("br")
     ])
   }
 ]
@@ -38636,29 +38618,52 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      { attrs: { to: { name: "Principal" } } },
-                      [_vm._v("Inicio")]
-                    )
-                  ],
-                  1
-                ),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.$router.push("Principal")
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-list" }), _vm._v(" Inicio")]
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "li",
                   { staticClass: "nav-item" },
                   [
                     _c("router-link", { attrs: { to: { name: "profesor" } } }, [
+                      _c("i", { staticClass: "fa fa-shopping-cart" }),
                       _vm._v("Profesores")
                     ])
                   ],
                   1
                 ),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.$router.push("Profesor")
+                        }
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-shopping-cart" }),
+                      _vm._v(" Compras")
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
@@ -38668,9 +38673,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(5),
                 _vm._v(" "),
-                _vm._m(6),
-                _vm._v(" "),
-                _vm._m(7)
+                _vm._m(6)
               ])
             ]),
             _vm._v(" "),
@@ -38688,7 +38691,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(8)
+        _vm._m(7)
       ]
     )
   ])
@@ -38726,18 +38729,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "nav-item" }, [
       _c("a", { staticClass: "nav-link active", attrs: { href: "#" } }, [
         _c("i", { staticClass: "icon-speedometer" }),
-        _vm._v(" Dashbord")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-shopping-cart" }),
-        _vm._v(" Compras")
+        _vm._v(" Menu")
       ])
     ])
   },
@@ -54398,9 +54390,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   }, {
     path: '/Profesor',
     name: 'profesor',
-    component: {
-      template: '<h1>Holas Como estas</h1'
-    }
+    component: function component() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
+    },
+    props: true
+  }, {
+    path: '/Home',
+    name: 'Principal',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Vistaprincipal.vue */ "./resources/js/views/Vistaprincipal.vue"));
+    },
+    props: true
   }],
   mode: 'history'
 }));

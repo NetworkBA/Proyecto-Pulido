@@ -20,7 +20,7 @@
                   <nav class="sidebar-nav">
                       <ul class="nav">
                           <li class="nav-item">
-                              <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Dashbord</a>
+                              <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Menu</a>
                           </li>
                           <li class="nav-title">
                               Menú
@@ -28,16 +28,15 @@
 
 
                           <li class="nav-item">
-                            <router-link :to ="{name: 'Principal'}">Inicio</router-link>
-                            </li>
-
-                          <li class="nav-item">
-                              <router-link :to ="{name: 'profesor'}">Profesores</router-link>
+                              <a class="nav-link" href="#"  @click="$router.push('Principal')" ><i class="fa fa-list"></i> Inicio</a>
                           </li>
 
+                          <li class="nav-item">
+                              <a class="nav-link" href="#" @click="$router.push('Profesor')" ><i class="fa fa-users"></i> Clientes</a>
+                          </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Compras</a>
+                              <a class="nav-link" href="#" @click="$router.push('Profesor')"><i class="fa fa-shopping-cart"></i> Compras</a>
                           </li>
 
                           <li class="nav-item">
