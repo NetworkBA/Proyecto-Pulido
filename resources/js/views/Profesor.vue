@@ -1,3 +1,7 @@
 <template>
-    <h1>Hola</h1>
+
+<div>
+    <h1>Hola Profesor</h1>
+
+</div>
 </template>

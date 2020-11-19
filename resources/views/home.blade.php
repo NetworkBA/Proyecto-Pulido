@@ -4,20 +4,13 @@
 
 
 
-<div class="container">
 
-
-</div>
-
-<body>
-
-    <div class="app-body">
       <!--Menu----------------------------------------------------->
       <menu-component> </menu-component>
       <!--FIN Menu----------------------------------------------------->
 
 
-    </div>
+
 
 
   <!--  <footer class="app-footer">
@@ -27,5 +20,4 @@
 -->
     <!-- Bootstrap and necessary plugins -->
 
-</body>
 @endsection

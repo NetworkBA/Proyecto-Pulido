@@ -5,10 +5,16 @@ Vue.use(Router)
 
 export default new Router(
   {
-    routes: [ {
-        path: '/profesor',
+    routes: [
+      {
+        path: '/Principal',
+        name: 'Principal',
+        component: () => import("./views/Vistaprincipal.vue"),
+        props: true    },
+      {
+        path: '/Profesor',
         name: 'profesor',
-        component: require('./views/Profesor')
+        component: {template:'<h1>Holas Como estas</h1'}
     },
   ],
   mode: 'history'
