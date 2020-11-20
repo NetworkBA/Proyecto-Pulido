@@ -15,16 +15,18 @@ class UsuariosMigration extends Migration
     {
       Schema::create('Usuarios', function (Blueprint $table) {
 
-          $table->increments('id');
-          $table->string('Nombre');
-          $table->string('Apellido_P');
-          $table->string('Apellido_M');
-          $table->string('Correo_Electronico');
-          $table->string('CURP')->unique();
-          $table->string('Contraseña')->unique();
-          $table->integer('Tipo_Usuario')->unsigned();
-
+        $table->engine = 'InnoDB';
+        $table->increments('id');
+        $table->string('Nombre');
+        $table->string('Apellido_P');
+        $table->string('Apellido_M');
+        $table->string('CURP');
+        $table->integer('tipo_usuario_id')->unsigned();
+        $table->foreign('tipo_usuario_id')->references('id')->on('Tipos_Usuarios');
+        $table->timestamps();;
       });
+
+
     }
 
     /**
