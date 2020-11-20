@@ -32,20 +32,20 @@
                           </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#" @click="$router.push('Profesor')" ><i class="fa fa-users"></i> Clientes</a>
+                              <a class="nav-link" href="#" @click="$router.push('Administrativo')" ><i class="fa fa-users"></i>Administrativos</a>
                           </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#" @click="$router.push('Profesor')"><i class="fa fa-shopping-cart"></i> Compras</a>
+                              <a class="nav-link" href="#" @click="$router.push('Profesor')"><i class="fa fa-shopping-cart"></i>Profesores</a>
                           </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fa fa-users"></i> Proveedores</a>
+                              <a class="nav-link" href="#" @click="$router.push('Profesor') "><i class="fa fa-users"></i> Alumnos</a>
                           </li>
 
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fa fa-suitcase"></i> Ventas</a>
+                              <a class="nav-link" href="#" @click="$router.push('Profesor') "><i class="fa fa-suitcase"></i>Clases</a>
                           </li>
 
                           <li class="nav-item">
