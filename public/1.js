@@ -127,6 +127,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component Administrativo.');
@@ -151,28 +170,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "main" }, [
-    _vm._m(0),
-    _vm._v(" "),
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "card" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "card-body" },
           [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c("Administrativos"),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ],
           1
         )
       ])
     ]),
     _vm._v(" "),
-    _vm._m(4)
+    _vm._m(3)
   ])
 }
 var staticRenderFns = [
@@ -180,20 +197,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "breadcrumb" }, [
-      _c("li", { staticClass: "breadcrumb-item active" }, [
-        _c("a", { attrs: { href: "/" } }, [
-          _vm._v("BACKEND - SISTEMA DE COMPRAS - VENTAS")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h2", [_vm._v("Listado de Categorías")]),
+      _c("h2", [_vm._v("Listado de Administrativos")]),
       _c("br"),
       _vm._v(" "),
       _c(
@@ -203,12 +208,12 @@ var staticRenderFns = [
           attrs: {
             type: "button",
             "data-toggle": "modal",
-            "data-target": "#abrirmodal"
+            "data-target": "#abrirmodal2"
           }
         },
         [
           _c("i", { staticClass: "fa fa-plus fa-2x" }),
-          _vm._v("  Agregar Categoría\n                 ")
+          _vm._v("  Agregar Administrativo\n                 ")
         ]
       )
     ])
@@ -296,7 +301,7 @@ var staticRenderFns = [
         staticClass: "modal fade",
         staticStyle: { display: "none" },
         attrs: {
-          id: "abrirmodal",
+          id: "abrirmodal2",
           tabindex: "-1",
           role: "dialog",
           "aria-labelledby": "myModalLabel",
@@ -314,7 +319,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "modal-content" }, [
               _c("div", { staticClass: "modal-header" }, [
                 _c("h4", { staticClass: "modal-title" }, [
-                  _vm._v("Agregar categoría")
+                  _vm._v("Agregar Administrativo")
                 ]),
                 _vm._v(" "),
                 _c(
@@ -360,7 +365,7 @@ var staticRenderFns = [
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Categoría")]
+                        [_vm._v("Nombre")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -368,7 +373,7 @@ var staticRenderFns = [
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Nombre de categoría"
+                            placeholder: "Ingrese el/los Nombre/Nombres"
                           }
                         })
                       ])
@@ -381,15 +386,75 @@ var staticRenderFns = [
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "email-input" }
                         },
-                        [_vm._v("Descripción")]
+                        [_vm._v("Apellido Paterno")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
                         _c("input", {
                           staticClass: "form-control",
                           attrs: {
-                            type: "email",
-                            placeholder: "Ingrese descripcion"
+                            type: "text",
+                            placeholder: "Ingrese Apellido Paterno"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Apellido Materno")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Ingrese Materno"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("CURP")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Ingrese CURP" }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Contraseña")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Ingrese Contraseña"
                           }
                         })
                       ])

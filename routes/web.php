@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/Administrativo', 'Administrativo_Controller@index');
+
+Route::post('/Administrativo.Crear', 'Administrativo_Controller@store');

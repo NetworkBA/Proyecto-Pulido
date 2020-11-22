@@ -2328,6 +2328,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component ad1.');
@@ -39027,12 +39080,9 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("td", [_vm._v("categoria")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("descripcion")]),
+              _c("td", [_vm._v(_vm._s(admi.CURP))]),
               _vm._v(" "),
               _vm._m(1, true),
-              _vm._v(" "),
               _vm._m(2, true),
               _vm._v(" "),
               _vm._m(3, true)
@@ -39043,7 +39093,9 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _vm._m(4)
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5)
   ])
 }
 var staticRenderFns = [
@@ -39053,15 +39105,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "bg-primary" }, [
-        _c("th", [_vm._v("Id")]),
+        _c("th", [_vm._v("Numero Control")]),
         _vm._v(" "),
         _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")]),
+        _c("th", [_vm._v("CURP")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Información")]),
         _vm._v(" "),
         _c("th", [_vm._v("Editar")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Cambiar Estado")])
+        _c("th", [_vm._v("Eliminar")])
       ])
     ])
   },
@@ -39072,12 +39126,20 @@ var staticRenderFns = [
     return _c("td", [
       _c(
         "button",
-        { staticClass: "btn btn-success btn-md", attrs: { type: "button" } },
+        {
+          staticClass: "btn btn-info btn-md",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-target": "#vermodal"
+          }
+        },
         [
-          _c("i", { staticClass: "fa fa-check fa-2x" }),
-          _vm._v(" Activo\n                        ")
+          _c("i", { staticClass: "fa fa-edit fa-2x" }),
+          _vm._v(" Editar\n                        ")
         ]
-      )
+      ),
+      _vm._v("  \n\n\n                    ")
     ])
   },
   function() {
@@ -39214,6 +39276,146 @@ var staticRenderFns = [
                           attrs: { for: "email-input" }
                         },
                         [_vm._v("Descripción")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            placeholder: "Ingrese descripcion"
+                          }
+                        })
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-times fa-2x" }),
+                    _vm._v(" Cerrar")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-success", attrs: { type: "button" } },
+                  [
+                    _c("i", { staticClass: "fa fa-save fa-2x" }),
+                    _vm._v(" Guardar")
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        staticStyle: { display: "none" },
+        attrs: {
+          id: "vermodal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "myModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-primary modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h4", { staticClass: "modal-title" }, [
+                  _vm._v("Agregar categoría")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "form-group row div-error" }, [
+                  _c("div", { staticClass: "text-center text-error" }, [
+                    _c("div")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    staticClass: "form-horizontal",
+                    attrs: {
+                      action: "",
+                      method: "post",
+                      enctype: "multipart/form-data"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Administrativo")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Nombre de Administrativo"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("sas")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [

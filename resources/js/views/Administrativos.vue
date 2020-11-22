@@ -7,11 +7,12 @@
             <thead>
                 <tr class="bg-primary">
 
-                    <th>Id</th>
+                    <th>Numero Control</th>
                     <th>Nombre</th>
-                    <th>Estado</th>
+                    <th>CURP</th>
+                    <th>Información</th>
                     <th>Editar</th>
-                    <th>Cambiar Estado</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,15 +20,13 @@
                 <tr v-for ="admi in admis">
                     <td>{{admi.id}}</td>
                     <td>{{admi.Nombre +" "+ admi.Apellido_P + " "+ admi.Apellido_M}}</td>
-                    <td>categoria</td>
-                    <td>descripcion</td>
+                    <td>{{admi.CURP}}</td>
                     <td>
-                        <button type="button" class="btn btn-success btn-md">
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#vermodal">
 
-                          <i class="fa fa-check fa-2x"></i> Activo
-                        </button>
+                          <i class="fa fa-edit fa-2x"></i> Editar
+                        </button> &nbsp;
 
-                    </td>
 
                     <td>
                         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#abrirmodal">
@@ -101,6 +100,60 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade" id="vermodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-primary modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Agregar categoría</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-group row div-error">
+
+                    <div class="text-center text-error">
+
+                        <div></div>
+
+                    </div>
+
+                </div>
+
+
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="text-input">Administrativo</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="Nombre de Administrativo">
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="email-input">sas</label>
+                        <div class="col-md-9">
+                        <input type="email" class="form-control" placeholder="Ingrese descripcion">
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-2x"></i> Cerrar</button>
+                <button type="button" class="btn btn-success"><i class="fa fa-save fa-2x"></i> Guardar</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
 </div>
 
 
