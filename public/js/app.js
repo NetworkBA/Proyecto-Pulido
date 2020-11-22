@@ -2392,12 +2392,16 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getadmis: function getadmis() {
+    createKeep: function createKeep() {
       var _this = this;
 
-      var urladmis = "Administrativo";
-      axios.get(urladmis).then(function (response) {
-        _this.admis = response.data;
+      var url = 'Administrativo.Crear';
+      axios.post(url, {
+        keep: this.newKeep
+      }).then(function (response) {
+        toastr.success('Nueva tarea creada con éxito');
+      })["catch"](function (error) {
+        _this.errors = 'Corrija para poder crear con éxito';
       });
     }
   }

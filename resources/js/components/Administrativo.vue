@@ -80,11 +80,11 @@
                      </div>
 
 
-                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                     <form  method="post" enctype="multipart/form-data" class="form-horizontal  v-on:submit.prevent="CrearAdministrador"">
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                              <div class="col-md-9">
-                                 <input type="text" name="Nombre" class="form-control" placeholder="Ingrese el Nombre">
+                                 <input type="text" name="Nombre" v-model= "Nombre" class="form-control" placeholder="Ingrese el Nombre">
 
                              </div>
                          </div>
@@ -129,7 +129,7 @@
                  </div>
                  <div class="modal-footer">
                      <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-2x"></i> Cerrar</button>
-                     <button type="button" class="btn btn-success"><i class="fa fa-save fa-2x"></i> Guardar</button>
+                     <button type="button" class="btn btn-success" @click="agregaradmin" ><i class="fa fa-save fa-2x"></i> Guardar</button>
 
                  </div>
              </div>
@@ -143,11 +143,22 @@
 </template>
 
 <script>
+
     export default {
 
 
         mounted() {
             console.log('Component Administrativo.')
-        }
+        },
+        data:{
+            Nombre: ''
+        },
+          methods:{
+
+          agregaradmin: function()
+                {
+                  console.log('diste click', this.Nombre);
+                }
+          }
     }
 </script>
