@@ -27,9 +27,10 @@ export default new Router(
     {
       path: '/Administrativo',
       name: 'Administrativo',
-      component: () => import("./views/Administrativo.vue"),
+      component: () => import("./components/Administrativo.vue"),
       props: true
     },
+
   ],
   mode: 'history'
 

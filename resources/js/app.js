@@ -39,6 +39,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 Vue.component('contenido-component', require('./components/Contenido.vue').default);
+Vue.component('Administrativos', require('./views/Administrativos.vue').default);
+
 Vue.component('InfiniteLoading', require('vue-infinite-loading').default);
 
 import router from './routes'
