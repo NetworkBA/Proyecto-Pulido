@@ -21,6 +21,8 @@ class UsuariosMigration extends Migration
         $table->string('Apellido_P');
         $table->string('Apellido_M');
         $table->string('CURP');
+        $table->string('contraseña');
+        $table->string('usuario');
         $table->integer('tipo_usuario_id')->unsigned();
         $table->foreign('tipo_usuario_id')->references('id')->on('Tipos_Usuarios');
         $table->timestamps();;

@@ -15,6 +15,6 @@ class Usuario extends Model
   ,'Apellido_P'
   ,'Apellido_M'
   ,'CURP'
-  ,'tipo_usuario_id'
+  ,'tipo_usuario_id','contraseña','usuario'
   ];
 }
