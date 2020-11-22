@@ -18,7 +18,7 @@ class Administrativo_Controller extends Controller
     {
 
       $usuario = new Usuario ( array(
-        ,'Nombre' =>$request->get('Nombre')
+        'Nombre' =>$request->get('Nombre')
         ,'Apellido_P' =>$request->get('Apellido_P')
         ,'Apellido_M' =>$request->get('Apellido_M')
         ,'CURP' =>$request->get('CURP')

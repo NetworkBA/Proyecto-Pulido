@@ -84,42 +84,42 @@
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                              <div class="col-md-9">
-                                 <input type="text" class="form-control" placeholder="Ingrese el Nombre">
+                                 <input type="text" name="Nombre" class="form-control" placeholder="Ingrese el Nombre">
 
                              </div>
                          </div>
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="email-input">Apellido Paterno</label>
                              <div class="col-md-9">
-                             <input type="text" class="form-control" placeholder="Ingrese Apellido Paterno">
+                             <input type="text" name="Apellido_P" class="form-control" placeholder="Ingrese Apellido Paterno">
                              </div>
                          </div>
 
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="email-input">Apellido Materno</label>
                              <div class="col-md-9">
-                             <input type="text" class="form-control" placeholder="Ingrese Materno">
+                             <input type="text" name="Apellido_M" class="form-control" placeholder="Ingrese Materno">
                              </div>
                          </div>
 
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                              <div class="col-md-9">
-                             <input type="text" class="form-control" placeholder="Ingrese CURP">
+                             <input type="text" name="CURP" class="form-control" placeholder="Ingrese CURP">
                              </div>
                          </div>
 
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
                              <div class="col-md-9">
-                             <input type="password" class="form-control" placeholder="Ingrese Contraseña">
+                             <input type="password" name="Contraseña" class="form-control" placeholder="Ingrese Contraseña">
                              </div>
                          </div>
 
                          <div class="form-group row">
                              <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
                              <div class="col-md-9">
-                             <input type="password" class="form-control" placeholder="Ingrese Contraseña">
+                             <input type="password" name= "Contraseña2" class="form-control" placeholder="Ingrese Contraseña">
                              </div>
                          </div>
 
