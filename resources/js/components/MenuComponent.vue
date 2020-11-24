@@ -40,12 +40,7 @@
                           </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#" @click="$router.push('Profesor') "><i class="fa fa-users"></i> Alumnos</a>
-                          </li>
-
-
-                          <li class="nav-item">
-                              <a class="nav-link" href="#" @click="$router.push('Profesor') "><i class="fa fa-suitcase"></i>Clases</a>
+                              <a class="nav-link" href="#" @click="$router.push('Estudiantes') "><i class="fa fa-users"></i> Alumnos</a>
                           </li>
 
                           <li class="nav-item">

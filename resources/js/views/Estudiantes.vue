@@ -4,10 +4,10 @@
     <div class="card">
         <div class="card-header">
 
-           <h2>Listado de Administrativos</h2><br/>
+           <h2>Listado de Alumnos</h2><br/>
 
             <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#abrirmodal2">
-                <i class="fa fa-plus fa-2x"></i>&nbsp;&nbsp;Agregar Administrativo
+                <i class="fa fa-plus fa-2x"></i>&nbsp;&nbsp;Agregar Alumno
             </button>
         </div>
         <div class="card-body">
@@ -102,7 +102,7 @@
     <div class="modal-dialog modal-primary modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Agregar Administrativo</h4>
+                <h4 class="modal-title">Agregar Alumno</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
@@ -185,7 +185,7 @@
               <div class="modal-dialog modal-primary modal-lg" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h4 class="modal-title">Ver Administrador</h4>
+                          <h4 class="modal-title">Ver Alumno</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
@@ -259,7 +259,7 @@
               <div class="modal-dialog modal-primary modal-lg" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h4 class="modal-title">Editar Administrador</h4>
+                          <h4 class="modal-title">Editar Alumno</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
@@ -335,7 +335,7 @@
               <div class="modal-dialog modal-primary modal-lg" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h4 class="modal-title">Eliminar Administrador</h4>
+                          <h4 class="modal-title">Eliminar Alumno</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
@@ -420,7 +420,7 @@
 
 
         mounted() {
-            console.log('Component ad1.')
+            console.log('Component Estudiantes secundarios.')
             this.getadmis()
         },
 
@@ -440,14 +440,14 @@
     CrearAdministrador()
         {
           console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
-          var urladmis = "Administrativo.Crear";
+          var urladmis = "Estudiante.Crear";
           const params = {
           Nombre: this.administrativo.Nombre ,Apellido_P: this.administrativo.Apellido_P, Apellido_M: this.administrativo.Apellido_M, CURP: this.administrativo.CURP,
            Contraseña: this.administrativo.Contraseña
           }
           axios.post(urladmis,params)
           this.$forceUpdate();
-          var urladmis = "Administrativo";
+          var urladmis = "Estudiante";
 
           axios.get(urladmis).then(response =>
           {
@@ -457,7 +457,7 @@
 
         },
             getadmis(){
-            var urladmis = "Administrativo";
+            var urladmis = "Estudiante";
             axios.get(urladmis).then(response =>
             {
               this.admis = response.data
@@ -490,7 +490,7 @@
             GuardarAdmi()
             {
                 this.editmode = true;
-                var urladmis = "Administrativo.Editar";
+                var urladmis = "Estudiante.Editar";
 
                 const params = {
                  id: this.administrativo.id,
@@ -501,7 +501,7 @@
 
                 }
                 axios.post(urladmis,params);
-                var urladmis = "Administrativo";
+                var urladmis = "Estudiante";
                 axios.get(urladmis).then(response =>
                 {
                   this.admis = response.data
@@ -531,9 +531,9 @@
 
             }
                     console.log(this.administrativo.id);
-                    var urladmis = "Administrativo.Destroy";
+                    var urladmis = "Estudiante.Destroy";
                     axios.post(urladmis, params);
-                    var urladmis = "Administrativo";
+                    var urladmis = "Estudiante";
 
                     axios.get(urladmis).then(response =>
                     {

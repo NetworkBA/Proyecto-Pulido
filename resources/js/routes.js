@@ -15,7 +15,7 @@ export default new Router(
       {
         path: '/Profesor',
         name: 'profesor',
-        component: () => import("./components/ExampleComponent.vue"),
+        component: () => import("./components/Profesor.vue"),
         props: true
     },
     {
@@ -28,6 +28,12 @@ export default new Router(
       path: '/Administrativo',
       name: 'Administrativo',
       component: () => import("./components/Administrativo.vue"),
+      props: true
+    },
+    {
+      path: '/Estudiantes',
+      name: 'Estudiante',
+      component: () => import("./components/Estudiantes.vue"),
       props: true
     },
 

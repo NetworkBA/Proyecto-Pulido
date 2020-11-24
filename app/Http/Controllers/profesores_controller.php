@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
 
-class Administrativo_Controller extends Controller
+class profesores_controller extends Controller
 {
     public function index()
     {
-        $Administrativo = Usuario::where('tipo_usuario_id','2')->get();
+        $Administrativo = Usuario::where('tipo_usuario_id','3')->get();
 
         return $Administrativo;
     }
@@ -19,7 +19,7 @@ class Administrativo_Controller extends Controller
 
         $Administrativo = new Usuario();
         $Administrativo->Nombre = $request->Nombre;
-        $Administrativo->tipo_usuario_id = 2;
+        $Administrativo->tipo_usuario_id = 3;
         $Administrativo->Apellido_P = $request->Apellido_P;
         $Administrativo->Apellido_M = $request->Apellido_M;
         $Administrativo->CURP = $request->CURP;
