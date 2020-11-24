@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Usuario;
 
 
-class estudiante_controller extends Controller
+class padrefamilia_controller extends Controller
 {
   public function index()
   {

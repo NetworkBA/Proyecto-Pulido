@@ -2752,10 +2752,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Estudiantes.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Estudiantes.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PradresdeFamilia.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/PradresdeFamilia.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3181,7 +3181,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component Estudiantes secundarios.');
+    console.log('Component Padres secundarios.');
     this.getadmis();
   },
   data: function data() {
@@ -3204,7 +3204,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
-      var urladmis = "Estudiante.Crear";
+      var urladmis = "Padre.Crear";
       var params = {
         Nombre: this.administrativo.Nombre,
         Apellido_P: this.administrativo.Apellido_P,
@@ -3214,7 +3214,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       axios.post(urladmis, params);
       this.$forceUpdate();
-      var urladmis = "Estudiante";
+      var urladmis = "Padre";
       axios.get(urladmis).then(function (response) {
         _this.admis = response.data;
       });
@@ -3223,7 +3223,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getadmis: function getadmis() {
       var _this2 = this;
 
-      var urladmis = "Estudiante";
+      var urladmis = "Padre";
       axios.get(urladmis).then(function (response) {
         _this2.admis = response.data;
       });
@@ -3252,7 +3252,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       this.editmode = true;
-      var urladmis = "Estudiante.Editar";
+      var urladmis = "Padre.Editar";
       var params = {
         id: this.administrativo.id,
         Nombre: this.administrativo.Nombre,
@@ -3261,7 +3261,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         CURP: this.administrativo.CURP
       };
       axios.post(urladmis, params);
-      var urladmis = "Administrativo";
+      var urladmis = "Padre";
       axios.get(urladmis).then(function (response) {
         _this3.admis = response.data;
       });
@@ -3286,9 +3286,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         CURP: this.administrativo.CURP
       };
       console.log(this.administrativo.id);
-      var urladmis = "Estudiante.Destroy";
+      var urladmis = "Padre.Destroy";
       axios.post(urladmis, params);
-      var urladmis = "Administrativo";
+      var urladmis = "Padre";
       axios.get(urladmis).then(function (response) {
         _this4.admis = response.data;
       });
@@ -40331,13 +40331,13 @@ var render = function() {
                       attrs: { href: "#" },
                       on: {
                         click: function($event) {
-                          return _vm.$router.push("Estudiantes")
+                          return _vm.$router.push("PradredeFamilia")
                         }
                       }
                     },
                     [
                       _c("i", { staticClass: "fa fa-users" }),
-                      _vm._v(" Alumnos")
+                      _vm._v(" Padres de Familia")
                     ]
                   )
                 ]),
@@ -41902,10 +41902,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Estudiantes.vue?vue&type=template&id=1376d7dc&":
-/*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Estudiantes.vue?vue&type=template&id=1376d7dc& ***!
-  \*********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PradresdeFamilia.vue?vue&type=template&id=71b081f0&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/PradresdeFamilia.vue?vue&type=template&id=71b081f0& ***!
+  \**************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -42891,7 +42891,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h2", [_vm._v("Listado de Administrativos")]),
+      _c("h2", [_vm._v("Listado de Padre de Familias")]),
       _c("br"),
       _vm._v(" "),
       _c(
@@ -42906,7 +42906,7 @@ var staticRenderFns = [
         },
         [
           _c("i", { staticClass: "fa fa-plus fa-2x" }),
-          _vm._v("  Agregar Administrativo\n            ")
+          _vm._v("  Agregar Padre de Familia\n            ")
         ]
       )
     ])
@@ -43010,7 +43010,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h4", { staticClass: "modal-title" }, [
-        _vm._v("Agregar Administrativo")
+        _vm._v("Agregar Padre de Familia")
       ]),
       _vm._v(" "),
       _c(
@@ -43079,7 +43079,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("h4", { staticClass: "modal-title" }, [_vm._v("Ver Administrador")]),
+      _c("h4", { staticClass: "modal-title" }, [
+        _vm._v("Ver Padre de Familia")
+      ]),
       _vm._v(" "),
       _c(
         "button",
@@ -43249,7 +43251,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h4", { staticClass: "modal-title" }, [
-        _vm._v("Editar Administrador")
+        _vm._v("Editar Padre de Familia")
       ]),
       _vm._v(" "),
       _c(
@@ -43293,7 +43295,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h4", { staticClass: "modal-title" }, [
-        _vm._v("Eliminar Administrador")
+        _vm._v("Eliminar Padre de Familia")
       ]),
       _vm._v(" "),
       _c(
@@ -60060,7 +60062,7 @@ Vue.component('contenido-component', __webpack_require__(/*! ./components/Conten
 Vue.component('Administrativos', __webpack_require__(/*! ./views/Administrativos.vue */ "./resources/js/views/Administrativos.vue")["default"]);
 Vue.component('Profesores', __webpack_require__(/*! ./views/Profesores.vue */ "./resources/js/views/Profesores.vue")["default"]);
 Vue.component('InfiniteLoading', __webpack_require__(/*! vue-infinite-loading */ "./node_modules/vue-infinite-loading/dist/vue-infinite-loading.js")["default"]);
-Vue.component('Estudiantes', __webpack_require__(/*! ./views/Estudiantes.vue */ "./resources/js/views/Estudiantes.vue")["default"]);
+Vue.component('PradredeFamili', __webpack_require__(/*! ./views/PradresdeFamilia.vue */ "./resources/js/views/PradresdeFamilia.vue")["default"]);
 
 var app = new Vue({
   el: '#app',
@@ -60366,10 +60368,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     },
     props: true
   }, {
-    path: '/Estudiantes',
-    name: 'Estudiante',
+    path: '/PradredeFamilia',
+    name: 'PradredeFamilia',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/Estudiantes.vue */ "./resources/js/components/Estudiantes.vue"));
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/PradredeFamilia.vue */ "./resources/js/components/PradredeFamilia.vue"));
     },
     props: true
   }],
@@ -60447,17 +60449,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Estudiantes.vue":
-/*!********************************************!*\
-  !*** ./resources/js/views/Estudiantes.vue ***!
-  \********************************************/
+/***/ "./resources/js/views/PradresdeFamilia.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/views/PradresdeFamilia.vue ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Estudiantes_vue_vue_type_template_id_1376d7dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Estudiantes.vue?vue&type=template&id=1376d7dc& */ "./resources/js/views/Estudiantes.vue?vue&type=template&id=1376d7dc&");
-/* harmony import */ var _Estudiantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Estudiantes.vue?vue&type=script&lang=js& */ "./resources/js/views/Estudiantes.vue?vue&type=script&lang=js&");
+/* harmony import */ var _PradresdeFamilia_vue_vue_type_template_id_71b081f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PradresdeFamilia.vue?vue&type=template&id=71b081f0& */ "./resources/js/views/PradresdeFamilia.vue?vue&type=template&id=71b081f0&");
+/* harmony import */ var _PradresdeFamilia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PradresdeFamilia.vue?vue&type=script&lang=js& */ "./resources/js/views/PradresdeFamilia.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -60467,9 +60469,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Estudiantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Estudiantes_vue_vue_type_template_id_1376d7dc___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Estudiantes_vue_vue_type_template_id_1376d7dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _PradresdeFamilia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PradresdeFamilia_vue_vue_type_template_id_71b081f0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PradresdeFamilia_vue_vue_type_template_id_71b081f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -60479,38 +60481,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Estudiantes.vue"
+component.options.__file = "resources/js/views/PradresdeFamilia.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/Estudiantes.vue?vue&type=script&lang=js&":
-/*!*********************************************************************!*\
-  !*** ./resources/js/views/Estudiantes.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************/
+/***/ "./resources/js/views/PradresdeFamilia.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/views/PradresdeFamilia.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Estudiantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Estudiantes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Estudiantes.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Estudiantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PradresdeFamilia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PradresdeFamilia.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PradresdeFamilia.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PradresdeFamilia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/Estudiantes.vue?vue&type=template&id=1376d7dc&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/views/Estudiantes.vue?vue&type=template&id=1376d7dc& ***!
-  \***************************************************************************/
+/***/ "./resources/js/views/PradresdeFamilia.vue?vue&type=template&id=71b081f0&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/views/PradresdeFamilia.vue?vue&type=template&id=71b081f0& ***!
+  \********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Estudiantes_vue_vue_type_template_id_1376d7dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Estudiantes.vue?vue&type=template&id=1376d7dc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Estudiantes.vue?vue&type=template&id=1376d7dc&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Estudiantes_vue_vue_type_template_id_1376d7dc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PradresdeFamilia_vue_vue_type_template_id_71b081f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PradresdeFamilia.vue?vue&type=template&id=71b081f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PradresdeFamilia.vue?vue&type=template&id=71b081f0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PradresdeFamilia_vue_vue_type_template_id_71b081f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Estudiantes_vue_vue_type_template_id_1376d7dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PradresdeFamilia_vue_vue_type_template_id_71b081f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

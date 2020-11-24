@@ -42,7 +42,7 @@ Vue.component('contenido-component', require('./components/Contenido.vue').defau
 Vue.component('Administrativos', require('./views/Administrativos.vue').default);
 Vue.component('Profesores', require('./views/Profesores.vue').default);
 Vue.component('InfiniteLoading', require('vue-infinite-loading').default);
-Vue.component('Estudiantes', require('./views/Estudiantes.vue').default);
+Vue.component('PradredeFamili', require('./views/PradresdeFamilia.vue').default);
 
 
 

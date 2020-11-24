@@ -31,9 +31,9 @@ export default new Router(
       props: true
     },
     {
-      path: '/Estudiantes',
-      name: 'Estudiante',
-      component: () => import("./components/Estudiantes.vue"),
+      path: '/PradredeFamilia',
+      name: 'PradredeFamilia',
+      component: () => import("./components/PradredeFamilia.vue"),
       props: true
     },
 

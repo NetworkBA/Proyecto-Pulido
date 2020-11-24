@@ -40,10 +40,10 @@ Route::post('/Profesor.Destroy', 'profesores_controller@destroy');
 
 
 
-Route::get('/Estudiante', 'estudiante_controller@index');
+Route::get('/Padre', 'padrefamilia_controller@index');
 
-Route::post('/Estudiante.Crear', 'estudiante_controller@store');
+Route::post('/Padre.Crear', 'padrefamilia_controller@store');
 
-Route::post('/Estudiante.Editar', 'estudiante_controller@edit');
+Route::post('/Padre.Editar', 'padrefamilia_controller@edit');
 
-Route::post('/Estudiante.Destroy', 'estudiante_controller@destroy');
+Route::post('/Padre.Destroy', 'padrefamilia_controller@destroy');
