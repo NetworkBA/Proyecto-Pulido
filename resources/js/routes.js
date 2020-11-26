@@ -36,6 +36,24 @@ export default new Router(
       component: () => import("./components/PradredeFamilia.vue"),
       props: true
     },
+    {
+      path: '/Estudiante',
+      name: 'Estudiante',
+      component: () => import("./components/Estudiante.vue"),
+      props: true
+    },
+    {
+      path: '/Materia',
+      name: 'Materia',
+      component: () => import("./components/Materia.vue"),
+      props: true
+    },
+    {
+      path: '/Clase',
+      name: 'Clase',
+      component: () => import("./components/Clase.vue"),
+      props: true
+    },
 
   ],
   mode: 'history'

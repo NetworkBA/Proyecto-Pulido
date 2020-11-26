@@ -20,7 +20,7 @@ class AlumnoMigration extends Migration
         $table->increments('id');
         $table->string('Nombre');
         $table->string('Apellido_P');
-        $table->string('Apellido_M');
+        $table->string('Apellido_M')->nullable();;
         $table->string('CURP');
         $table->string('Fecha_Nacimiento');
         $table->integer('id_tipo_vialidad')->unsigned();
@@ -29,11 +29,11 @@ class AlumnoMigration extends Migration
         $table->integer('id_transito')->unsigned();
         $table->integer('id_margen')->unsigned();
         $table->string('Nombre_vialidad');
-        $table->integer('Kilometro');
+        $table->integer('Kilometro')->nullable();;
         $table->integer('Numero_exterior');
-        $table->string('Numero_exterior_alfa');
-        $table->string('Numero_interior_alfa');
-        $table->integer('Numero_interior');
+        $table->string('Numero_exterior_alfa')->nullable();;
+        $table->string('Numero_interior_alfa')->nullable();;
+        $table->integer('Numero_interior')->nullable();;
         $table->integer('Codigo_postal');
         $table->integer('id_tipo_asentamiento')->unsigned();
         $table->string('Nombre_asentamiento');
@@ -41,8 +41,8 @@ class AlumnoMigration extends Migration
         $table->string('Referencia_1');
         $table->integer('id_referencia_2')->unsigned();
         $table->string('Referencia_2');
-        $table->integer('id_referencia_3')->unsigned();
-        $table->string('Referencia_3');
+        $table->integer('id_referencia_3')->unsigned()->nullable();;
+        $table->string('Referencia_3')->nullable();;
 
 
 

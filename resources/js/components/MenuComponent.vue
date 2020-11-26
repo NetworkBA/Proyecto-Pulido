@@ -44,16 +44,16 @@
                           </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fa fa-users"></i> Clientes</a>
+                              <a class="nav-link" href="#" @click="$router.push('Estudiante')" ><i class="fa fa-users"  ></i> Estudiante</a>
                           </li>
 
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fa fa-user"></i> Usuarios</a>
+                              <a class="nav-link" href="#" @click="$router.push('Materia')"><i class="fa fa-user"></i> Materias</a>
                           </li>
 
                           <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fa fa-list"></i> Roles</a>
+                              <a class="nav-link" href="#" @click="$router.push('Clase')"><i class="fa fa-list"  ></i> Clases</a>
                           </li>
 
 

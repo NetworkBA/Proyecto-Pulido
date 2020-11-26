@@ -121,7 +121,7 @@
                 </div>
 
 
-                <form  method="post" enctype="multipart/form-data" class="form-horizontal  v-on:submit.prevent="CrearAdministrador">
+                <form  method="post" enctype="multipart/form-data" class="form-horizontal"  v-on:submit.prevent="CrearAdministrador">
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                         <div class="col-md-9">
