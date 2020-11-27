@@ -144,6 +144,13 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                        <div class="col-md-9">
+                        <input type="email" v-model="administrativo.email" class="form-control" placeholder="Ingrese un correo electronico">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                         <div class="col-md-9">
                         <input type="text" v-model="administrativo.CURP" class="form-control" placeholder="Ingrese CURP">
@@ -237,6 +244,20 @@
                           </div>
 
                           <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                              <div class="col-md-9">
+                              <input type="text"  v-model="administrativo.email" class="form-control" readonly="readonly" >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña" readonly="readonly">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                               <div class="col-md-9">
                               <input type="text" id="CURP_Model"  class="form-control" placeholder="Ingrese CURP" readonly="readonly">
@@ -307,6 +328,20 @@
                               <label class="col-md-3 form-control-label" for="email-input">Apellido Materno</label>
                               <div class="col-md-9">
                               <input type="text" id="Apellido_M_Modele" v-model="administrativo.Apellido_M" class="form-control" >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                              <div class="col-md-9">
+                              <input type="text"  v-model="administrativo.email" class="form-control"  >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña">
                               </div>
                           </div>
 
@@ -387,6 +422,20 @@
                           </div>
 
                           <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                              <div class="col-md-9">
+                              <input type="text"  v-model="administrativo.email" class="form-control" readonly="readonly" >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                               <div class="col-md-9">
                               <input type="text" id="CURP_Modele" v-model="administrativo.CURP" class="form-control"  readonly="readonly">
@@ -442,8 +491,13 @@
           console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
           var urladmis = "Padre.Crear";
           const params = {
-          Nombre: this.administrativo.Nombre ,Apellido_P: this.administrativo.Apellido_P, Apellido_M: this.administrativo.Apellido_M, CURP: this.administrativo.CURP,
-           Contraseña: this.administrativo.Contraseña
+           id: this.administrativo.id,
+           Nombre: this.administrativo.Nombre ,
+           Apellido_P: this.administrativo.Apellido_P,
+           Apellido_M: this.administrativo.Apellido_M,
+           CURP: this.administrativo.CURP,
+           email: this.administrativo.email,
+           contraseña: this.administrativo.Contraseña
           }
           axios.post(urladmis,params)
           this.$forceUpdate();
@@ -472,6 +526,7 @@
               $(Apellido_P_Model).val(adm.Apellido_P);
               $(Apellido_M_Model).val(adm.Apellido_M);
               $(CURP_Model).val(adm.CURP);
+              this.administrativo.email = adm.usuario;
 
                 $('#vermodal').modal('show');
             },
@@ -485,6 +540,8 @@
                 this.administrativo.Apellido_M = admi.Apellido_M;
                 this.administrativo.CURP = admi.CURP;
                 this.administrativo.Apellido_P = admi.Apellido_P;
+                this.administrativo.email = admi.usuario;
+
                 $('#editarmodal').modal('show');
             },
             GuardarAdmi()
@@ -497,7 +554,9 @@
                  Nombre: this.administrativo.Nombre ,
                  Apellido_P: this.administrativo.Apellido_P,
                  Apellido_M: this.administrativo.Apellido_M,
-                 CURP: this.administrativo.CURP
+                 CURP: this.administrativo.CURP,
+                 email: this.administrativo.email,
+                 contraseña: this.administrativo.Contraseña
 
                 }
                 axios.post(urladmis,params);
@@ -511,6 +570,8 @@
 
             eliminarmodal(admi)
             {
+
+            this.administrativo.email = admi.usuario;
             this.administrativo.id = admi.id;
             this.administrativo.Nombre = admi.Nombre;
             this.administrativo.Apellido_M = admi.Apellido_M;

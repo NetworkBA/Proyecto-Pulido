@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "datatables": "^1.10.18",
         "vue-infinite-loading": "^2.4.5",
         "vue-router": "^3.4.9"
     }

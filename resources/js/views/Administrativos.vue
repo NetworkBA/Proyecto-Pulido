@@ -6,7 +6,7 @@
 
            <h2>Listado de Administrativos</h2><br/>
 
-            <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#abrirmodal2">
+            <button class="btn btn-primary btn-lg" type="button" data-toggle="modal"   @click.prevent="abrirabrir" >
                 <i class="fa fa-plus fa-2x"></i>&nbsp;&nbsp;Agregar Administrativo
             </button>
         </div>
@@ -144,6 +144,13 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                        <div class="col-md-9">
+                        <input type="email" v-model="administrativo.email" class="form-control" placeholder="Ingrese un correo electronico">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                         <div class="col-md-9">
                         <input type="text" v-model="administrativo.CURP" class="form-control" placeholder="Ingrese CURP">
@@ -160,7 +167,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
                         <div class="col-md-9">
-                        <input type="password" name= "Contraseña2" class="form-control" placeholder="Ingrese Contraseña">
+                        <input type="password"   v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña">
                         </div>
                     </div>
 
@@ -237,6 +244,13 @@
                           </div>
 
                           <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                              <div class="col-md-9">
+                              <input type="email" v-model="administrativo.email" class="form-control" placeholder="Ingrese un correo electronico" readonly="readonly">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                               <div class="col-md-9">
                               <input type="text" id="CURP_Model"  class="form-control" placeholder="Ingrese CURP" readonly="readonly">
@@ -306,7 +320,14 @@
                           <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">Apellido Materno</label>
                               <div class="col-md-9">
-                              <input type="text" id="Apellido_M_Modele" v-model="administrativo.Apellido_M" class="form-control" >
+                              <input type="text"  v-model="administrativo.Apellido_M" class="form-control" >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                              <div class="col-md-9">
+                              <input type="text"  v-model="administrativo.email" class="form-control" >
                               </div>
                           </div>
 
@@ -387,6 +408,13 @@
                           </div>
 
                           <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                              <div class="col-md-9">
+                              <input type="text"  v-model="administrativo.email" class="form-control" readonly="readonly" >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                               <div class="col-md-9">
                               <input type="text" id="CURP_Modele" v-model="administrativo.CURP" class="form-control"  readonly="readonly">
@@ -429,21 +457,26 @@
         return{
             editmode: false,
            admis: [],
-           administrativo: {id: '',Nombre: '',Apellido_P: '', Apellido_M: '', CURP: '', Apellido_M: '', CURP:'',
+           administrativo: {id: '',Nombre: '',Apellido_P: '', Apellido_M: '', CURP: '', Apellido_M: '', CURP:'', usuario: '',
            Contraseña : ''},
 
         }
     },
 
     methods:{
-
+    
     CrearAdministrador()
         {
           console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
           var urladmis = "Administrativo.Crear";
           const params = {
-          Nombre: this.administrativo.Nombre ,Apellido_P: this.administrativo.Apellido_P, Apellido_M: this.administrativo.Apellido_M, CURP: this.administrativo.CURP,
-           Contraseña: this.administrativo.Contraseña
+           id: this.administrativo.id,
+           Nombre: this.administrativo.Nombre ,
+           Apellido_P: this.administrativo.Apellido_P,
+           Apellido_M: this.administrativo.Apellido_M,
+           CURP: this.administrativo.CURP,
+           email: this.administrativo.email,
+           contraseña: this.administrativo.Contraseña
           }
           axios.post(urladmis,params)
           this.$forceUpdate();
@@ -454,6 +487,7 @@
             this.admis = response.data
           });
           $('#abrirmodal2').modal('hide');
+          this.limpiar();
 
         },
             getadmis(){
@@ -463,8 +497,17 @@
               this.admis = response.data
             });
             },
+            abrirabrir()
+            {
+
+
+            this.limpiar();
+            $('#abrirmodal2').modal('show');
+
+            },
             veradmi(adm)
             {
+              this.limpiar()
               this.editmode = true;
               console.log(adm.id);
               $(id_Model).val(adm.id);
@@ -472,11 +515,26 @@
               $(Apellido_P_Model).val(adm.Apellido_P);
               $(Apellido_M_Model).val(adm.Apellido_M);
               $(CURP_Model).val(adm.CURP);
+              this.administrativo.email = adm.usuario;
+
 
                 $('#vermodal').modal('show');
             },
+            limpiar()
+            {
+            this.administrativo.id = "";
+            this.administrativo.Nombre = "";
+            this.administrativo.Apellido_M = "";
+            this.administrativo.CURP = "";
+            this.administrativo.Apellido_P = "";
+            this.administrativo.email = "";
+            this.administrativo.Contraseña = "";
+            this.administrativo.Contraseña2 = ""
+
+            },
             editaradmi(admi)
             {
+              this.limpiar()
                 this.editmode = true;
 
                 console.log(admi.id);
@@ -485,6 +543,7 @@
                 this.administrativo.Apellido_M = admi.Apellido_M;
                 this.administrativo.CURP = admi.CURP;
                 this.administrativo.Apellido_P = admi.Apellido_P;
+                this.administrativo.email = admi.usuario;
                 $('#editarmodal').modal('show');
             },
             GuardarAdmi()
@@ -497,7 +556,9 @@
                  Nombre: this.administrativo.Nombre ,
                  Apellido_P: this.administrativo.Apellido_P,
                  Apellido_M: this.administrativo.Apellido_M,
-                 CURP: this.administrativo.CURP
+                 CURP: this.administrativo.CURP,
+                 email: this.administrativo.email,
+                 contraseña: this.administrativo.contraseña
 
                 }
                 axios.post(urladmis,params);
@@ -511,11 +572,14 @@
 
             eliminarmodal(admi)
             {
+            this.limpiar()
+
             this.administrativo.id = admi.id;
             this.administrativo.Nombre = admi.Nombre;
             this.administrativo.Apellido_M = admi.Apellido_M;
             this.administrativo.CURP = admi.CURP;
             this.administrativo.Apellido_P = admi.Apellido_P;
+            this.administrativo.email = admi.usuario;
             $('#eliminarmodal').modal('show');
             },
 
@@ -540,6 +604,8 @@
                       this.admis = response.data
                     });
                     $('#eliminarmodal').modal('hide');
+                    this.limpiar()
+
             }
     }
 

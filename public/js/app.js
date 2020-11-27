@@ -2632,6 +2632,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component ad1.');
@@ -2649,7 +2677,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         Apellido_P: '',
         Apellido_M: '',
         CURP: ''
-      }, _defineProperty(_administrativo, "Apellido_M", ''), _defineProperty(_administrativo, "CURP", ''), _defineProperty(_administrativo, "Contrase\xF1a", ''), _administrativo)
+      }, _defineProperty(_administrativo, "Apellido_M", ''), _defineProperty(_administrativo, "CURP", ''), _defineProperty(_administrativo, "usuario", ''), _defineProperty(_administrativo, "Contrase\xF1a", ''), _administrativo)
     };
   },
   methods: {
@@ -2659,11 +2687,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
       var urladmis = "Administrativo.Crear";
       var params = {
+        id: this.administrativo.id,
         Nombre: this.administrativo.Nombre,
         Apellido_P: this.administrativo.Apellido_P,
         Apellido_M: this.administrativo.Apellido_M,
         CURP: this.administrativo.CURP,
-        Contraseña: this.administrativo.Contraseña
+        email: this.administrativo.email,
+        contraseña: this.administrativo.Contraseña
       };
       axios.post(urladmis, params);
       this.$forceUpdate();
@@ -2672,6 +2702,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.admis = response.data;
       });
       $('#abrirmodal2').modal('hide');
+      this.limpiar();
     },
     getadmis: function getadmis() {
       var _this2 = this;
@@ -2681,7 +2712,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.admis = response.data;
       });
     },
+    abrirabrir: function abrirabrir() {
+      this.limpiar();
+      $('#abrirmodal2').modal('show');
+    },
     veradmi: function veradmi(adm) {
+      this.limpiar();
       this.editmode = true;
       console.log(adm.id);
       $(id_Model).val(adm.id);
@@ -2689,9 +2725,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $(Apellido_P_Model).val(adm.Apellido_P);
       $(Apellido_M_Model).val(adm.Apellido_M);
       $(CURP_Model).val(adm.CURP);
+      this.administrativo.email = adm.usuario;
       $('#vermodal').modal('show');
     },
+    limpiar: function limpiar() {
+      this.administrativo.id = "";
+      this.administrativo.Nombre = "";
+      this.administrativo.Apellido_M = "";
+      this.administrativo.CURP = "";
+      this.administrativo.Apellido_P = "";
+      this.administrativo.email = "";
+      this.administrativo.Contraseña = "";
+      this.administrativo.Contraseña2 = "";
+    },
     editaradmi: function editaradmi(admi) {
+      this.limpiar();
       this.editmode = true;
       console.log(admi.id);
       this.administrativo.id = admi.id;
@@ -2699,6 +2747,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.administrativo.Apellido_M = admi.Apellido_M;
       this.administrativo.CURP = admi.CURP;
       this.administrativo.Apellido_P = admi.Apellido_P;
+      this.administrativo.email = admi.usuario;
       $('#editarmodal').modal('show');
     },
     GuardarAdmi: function GuardarAdmi() {
@@ -2711,7 +2760,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         Nombre: this.administrativo.Nombre,
         Apellido_P: this.administrativo.Apellido_P,
         Apellido_M: this.administrativo.Apellido_M,
-        CURP: this.administrativo.CURP
+        CURP: this.administrativo.CURP,
+        email: this.administrativo.email,
+        contraseña: this.administrativo.contraseña
       };
       axios.post(urladmis, params);
       var urladmis = "Administrativo";
@@ -2721,11 +2772,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $('#editarmodal').modal('hide');
     },
     eliminarmodal: function eliminarmodal(admi) {
+      this.limpiar();
       this.administrativo.id = admi.id;
       this.administrativo.Nombre = admi.Nombre;
       this.administrativo.Apellido_M = admi.Apellido_M;
       this.administrativo.CURP = admi.CURP;
       this.administrativo.Apellido_P = admi.Apellido_P;
+      this.administrativo.email = admi.usuario;
       $('#eliminarmodal').modal('show');
     },
     deleteAdmi: function deleteAdmi() {
@@ -2746,6 +2799,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this4.admis = response.data;
       });
       $('#eliminarmodal').modal('hide');
+      this.limpiar();
     }
   }
 });
@@ -2935,6 +2989,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component Materias.');
@@ -2946,42 +3031,100 @@ __webpack_require__.r(__webpack_exports__);
       Clases: [],
       Materias: [],
       Profesores: [],
+      Estudiantes: [],
+      Alumnos: [],
       Clase: {
         id: '',
         id_Materia: '',
         id_profesor: ''
+      },
+      alu: {
+        id: ''
       }
     };
   },
   methods: {
-    getclases: function getclases() {
+    getEstud: function getEstud() {
       var _this = this;
+
+      var urlEstud = "Estudiante";
+      axios.get(urlEstud).then(function (response) {
+        _this.Estudiantes = response.data;
+      });
+    },
+    getclases: function getclases() {
+      var _this2 = this;
 
       var urlEstud = "Clases";
       axios.get(urlEstud).then(function (response) {
-        _this.Clases = response.data;
+        _this2.Clases = response.data;
       });
     },
     abrirnuevo: function abrirnuevo() {
       this.getmateiras();
       this.getprofesores();
+      this.getEstud();
       $('#agregarmodal').modal('show');
     },
     getmateiras: function getmateiras() {
-      var _this2 = this;
+      var _this3 = this;
 
       var urlEstud = "Materias";
       axios.get(urlEstud).then(function (response) {
-        _this2.Materias = response.data;
+        _this3.Materias = response.data;
       });
     },
     getprofesores: function getprofesores() {
-      var _this3 = this;
+      var _this4 = this;
 
       var urladmis = "Profesor";
       axios.get(urladmis).then(function (response) {
-        _this3.Profesores = response.data;
+        _this4.Profesores = response.data;
       });
+    },
+    entre: function entre(id) {
+      if ($("#" + id).prop('checked') == true) {
+        $("#" + id).prop('checked', true);
+        this.Alumnos.push(id);
+      } else {
+        $("#" + id).prop('checked', false);
+        var index = this.Alumnos.indexOf(id);
+
+        if (index > -1) {
+          this.Alumnos.splice(index, 1);
+        }
+      }
+
+      console.log(this.Alumnos);
+    },
+    limpiar: function limpiar() {
+      this.Clase.id_Materia = '';
+      this.Clase.id_profesor = '';
+
+      for (var i = 0; i < this.Alumnos.length; i++) {
+        $("#" + this.Alumnos[i]).prop('checked', false);
+        $('#agregarmodal').modal('hide');
+      }
+    },
+    capturar: function capturar() {
+      if (this.Clase.id_Materia == '' || this.Clase.id_profesor == '') {
+        alert('Debes completar los campos requeridos para poder guardar');
+        return;
+      } else {
+        var params = {
+          id_Materia: this.Clase.id_Materia,
+          id_profesor: this.Clase.id_profesor,
+          Alumnos: this.Alumnos
+        };
+        var urladmis = "Clases.save";
+        axios.post(urladmis, params);
+        console.log(this.Clases.data);
+        this.getclases();
+        $('#agregarmodal').modal('hide');
+        this.limpiar();
+        this.Alumnos.length = 0;
+        console.log(this.Alumnos);
+      }
     }
   }
 });
@@ -4817,6 +4960,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component Materias.');
@@ -5333,6 +5484,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component Padres secundarios.');
@@ -5360,11 +5560,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
       var urladmis = "Padre.Crear";
       var params = {
+        id: this.administrativo.id,
         Nombre: this.administrativo.Nombre,
         Apellido_P: this.administrativo.Apellido_P,
         Apellido_M: this.administrativo.Apellido_M,
         CURP: this.administrativo.CURP,
-        Contraseña: this.administrativo.Contraseña
+        email: this.administrativo.email,
+        contraseña: this.administrativo.Contraseña
       };
       axios.post(urladmis, params);
       this.$forceUpdate();
@@ -5390,6 +5592,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $(Apellido_P_Model).val(adm.Apellido_P);
       $(Apellido_M_Model).val(adm.Apellido_M);
       $(CURP_Model).val(adm.CURP);
+      this.administrativo.email = adm.usuario;
       $('#vermodal').modal('show');
     },
     editaradmi: function editaradmi(admi) {
@@ -5400,6 +5603,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.administrativo.Apellido_M = admi.Apellido_M;
       this.administrativo.CURP = admi.CURP;
       this.administrativo.Apellido_P = admi.Apellido_P;
+      this.administrativo.email = admi.usuario;
       $('#editarmodal').modal('show');
     },
     GuardarAdmi: function GuardarAdmi() {
@@ -5412,7 +5616,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         Nombre: this.administrativo.Nombre,
         Apellido_P: this.administrativo.Apellido_P,
         Apellido_M: this.administrativo.Apellido_M,
-        CURP: this.administrativo.CURP
+        CURP: this.administrativo.CURP,
+        email: this.administrativo.email,
+        contraseña: this.administrativo.Contraseña
       };
       axios.post(urladmis, params);
       var urladmis = "Padre";
@@ -5422,6 +5628,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $('#editarmodal').modal('hide');
     },
     eliminarmodal: function eliminarmodal(admi) {
+      this.administrativo.email = admi.usuario;
       this.administrativo.id = admi.id;
       this.administrativo.Nombre = admi.Nombre;
       this.administrativo.Apellido_M = admi.Apellido_M;
@@ -42652,17 +42859,38 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "card" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "card-header" }, [
+        _c("h2", [_vm._v("Listado de Administrativos")]),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg",
+            attrs: { type: "button", "data-toggle": "modal" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.abrirabrir($event)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fa fa-plus fa-2x" }),
+            _vm._v("  Agregar Administrativo\n            ")
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", [
           _c(
             "table",
             { staticClass: "table table-bordered table-striped table-sm" },
             [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -42751,7 +42979,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(2)
         ])
       ])
     ]),
@@ -42778,10 +43006,10 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(4),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _vm._m(5),
+                _vm._m(4),
                 _vm._v(" "),
                 _c(
                   "form",
@@ -42929,6 +43157,48 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "email-input" }
                         },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            placeholder: "Ingrese un correo electronico"
+                          },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
                         [_vm._v("CURP")]
                       ),
                       _vm._v(" "),
@@ -43003,13 +43273,53 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(6)
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Validación de Contraseña")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.Contraseña2,
+                              expression: "administrativo.Contraseña2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Ingrese Contraseña"
+                          },
+                          domProps: { value: _vm.administrativo.Contraseña2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "Contraseña2",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
                   ]
                 )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(7),
+                _vm._m(5),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -43052,10 +43362,10 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(8),
+              _vm._m(6),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _vm._m(9),
+                _vm._m(7),
                 _vm._v(" "),
                 _c(
                   "form",
@@ -43070,20 +43380,63 @@ var render = function() {
                     }
                   },
                   [
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _vm._m(9),
+                    _vm._v(" "),
                     _vm._m(10),
                     _vm._v(" "),
                     _vm._m(11),
                     _vm._v(" "),
-                    _vm._m(12),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            placeholder: "Ingrese un correo electronico",
+                            readonly: "readonly"
+                          },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _vm._m(13),
-                    _vm._v(" "),
-                    _vm._m(14)
+                    _vm._m(12)
                   ]
                 )
               ]),
               _vm._v(" "),
-              _vm._m(15)
+              _vm._m(13)
             ])
           ]
         )
@@ -43112,10 +43465,10 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(16),
+              _vm._m(14),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _vm._m(17),
+                _vm._m(15),
                 _vm._v(" "),
                 _c(
                   "form",
@@ -43272,7 +43625,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", id: "Apellido_M_Modele" },
+                          attrs: { type: "text" },
                           domProps: { value: _vm.administrativo.Apellido_M },
                           on: {
                             input: function($event) {
@@ -43282,6 +43635,45 @@ var render = function() {
                               _vm.$set(
                                 _vm.administrativo,
                                 "Apellido_M",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
                                 $event.target.value
                               )
                             }
@@ -43333,7 +43725,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(18),
+                _vm._m(16),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -43376,10 +43768,10 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(19),
+              _vm._m(17),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _vm._m(20),
+                _vm._m(18),
                 _vm._v(" "),
                 _c(
                   "form",
@@ -43573,6 +43965,45 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "email-input" }
                         },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", readonly: "readonly" },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
                         [_vm._v("CURP")]
                       ),
                       _vm._v(" "),
@@ -43613,7 +44044,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(21),
+                _vm._m(19),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -43636,31 +44067,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h2", [_vm._v("Listado de Administrativos")]),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-lg",
-          attrs: {
-            type: "button",
-            "data-toggle": "modal",
-            "data-target": "#abrirmodal2"
-          }
-        },
-        [
-          _c("i", { staticClass: "fa fa-plus fa-2x" }),
-          _vm._v("  Agregar Administrativo\n            ")
-        ]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -43783,32 +44189,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row div-error" }, [
       _c("div", { staticClass: "text-center text-error" }, [_c("div")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-md-3 form-control-label",
-          attrs: { for: "email-input" }
-        },
-        [_vm._v("Validación de Contraseña")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-9" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "password",
-            name: "Contraseña2",
-            placeholder: "Ingrese Contraseña"
-          }
-        })
-      ])
     ])
   },
   function() {
@@ -44237,22 +44617,38 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(3),
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h4", { staticClass: "modal-title" }, [
+                  _vm._v("Agregar Clase")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: { type: "button", "aria-label": "Close" },
+                    on: {
+                      click: function($event) {
+                        return _vm.limpiar()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c(
                   "form",
                   {
                     staticClass: "form-horizontal",
-                    attrs: { method: "post", enctype: "multipart/form-data" },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.CrearAdministrador($event)
-                      }
-                    }
+                    attrs: { method: "post", enctype: "multipart/form-data" }
                   },
                   [
                     _c("div", { staticClass: "form-group row" }, [
@@ -44273,8 +44669,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.Clase.Materia,
-                                expression: "Clase.Materia"
+                                value: _vm.Clase.id_Materia,
+                                expression: "Clase.id_Materia"
                               }
                             ],
                             staticClass: "form-control",
@@ -44291,7 +44687,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.Clase,
-                                  "Materia",
+                                  "id_Materia",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -44394,20 +44790,86 @@ var render = function() {
                           2
                         )
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Agregar Alumnos")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c(
+                          "table",
+                          { staticClass: "table", attrs: { id: "example" } },
+                          [
+                            _vm._m(4),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.Estudiantes, function(alu) {
+                                return _c("tr", { key: alu.id }, [
+                                  _c("th", [
+                                    _c("div", { staticClass: "form-check" }, [
+                                      _c("input", {
+                                        staticClass: "form-check-input",
+                                        attrs: { id: alu.id, type: "checkbox" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.entre(alu.id)
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("th", { attrs: { scope: "row" } }, [
+                                    _vm._v(_vm._s(alu.id))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(alu.Nombre))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(alu.CURP))])
+                                ])
+                              }),
+                              0
+                            )
+                          ]
+                        )
+                      ])
                     ])
                   ]
                 )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(5),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.limpiar()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-times fa-2x" }),
+                    _vm._v(" Cerrar")
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "button",
                   {
                     staticClass: "btn btn-success",
                     attrs: { type: "button" },
-                    on: { click: function($event) {} }
+                    on: { click: _vm.capturar }
                   },
                   [
                     _c("i", { staticClass: "fa fa-save fa-2x" }),
@@ -44518,27 +44980,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h4", { staticClass: "modal-title" }, [_vm._v("Agregar Materia")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row div-error" }, [
       _c("div", { staticClass: "text-center text-error" }, [_c("div")])
     ])
@@ -44547,14 +44988,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-danger",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("i", { staticClass: "fa fa-times fa-2x" }), _vm._v(" Cerrar")]
-    )
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("CURP")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -51233,7 +51677,9 @@ var render = function() {
                           }
                         })
                       ])
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(11)
                   ]
                 )
               ]),
@@ -51293,10 +51739,10 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(11),
+              _vm._m(12),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _vm._m(12),
+                _vm._m(13),
                 _vm._v(" "),
                 _c(
                   "form",
@@ -51393,7 +51839,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(13),
+                _vm._m(14),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -51620,6 +52066,23 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row div-error" }, [
       _c("div", { staticClass: "text-center text-error" }, [_c("div")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        {
+          staticClass: "col-md-3 form-control-label",
+          attrs: { for: "text-input" }
+        },
+        [_vm._v("Agregar Alumnos")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9" })
     ])
   },
   function() {
@@ -51950,6 +52413,48 @@ var render = function() {
                       staticClass: "col-md-3 form-control-label",
                       attrs: { for: "email-input" }
                     },
+                    [_vm._v("Correo Electronico")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-9" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.administrativo.email,
+                          expression: "administrativo.email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        placeholder: "Ingrese un correo electronico"
+                      },
+                      domProps: { value: _vm.administrativo.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.administrativo,
+                            "email",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-md-3 form-control-label",
+                      attrs: { for: "email-input" }
+                    },
                     [_vm._v("CURP")]
                   ),
                   _vm._v(" "),
@@ -52096,6 +52601,88 @@ var render = function() {
                     _vm._m(12),
                     _vm._v(" "),
                     _vm._m(13),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", readonly: "readonly" },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Contraseña")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.Contraseña,
+                              expression: "administrativo.Contraseña"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Ingrese Contraseña",
+                            readonly: "readonly"
+                          },
+                          domProps: { value: _vm.administrativo.Contraseña },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "Contraseña",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
                     _vm._v(" "),
                     _vm._m(14)
                   ]
@@ -52301,6 +52888,87 @@ var render = function() {
                               _vm.$set(
                                 _vm.administrativo,
                                 "Apellido_M",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Contraseña")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.Contraseña,
+                              expression: "administrativo.Contraseña"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Ingrese Contraseña"
+                          },
+                          domProps: { value: _vm.administrativo.Contraseña },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "Contraseña",
                                 $event.target.value
                               )
                             }
@@ -52577,6 +53245,87 @@ var render = function() {
                               _vm.$set(
                                 _vm.administrativo,
                                 "Apellido_M",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Correo Electronico")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.email,
+                              expression: "administrativo.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", readonly: "readonly" },
+                          domProps: { value: _vm.administrativo.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "email-input" }
+                        },
+                        [_vm._v("Contraseña")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-9" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.administrativo.Contraseña,
+                              expression: "administrativo.Contraseña"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Ingrese Contraseña"
+                          },
+                          domProps: { value: _vm.administrativo.Contraseña },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.administrativo,
+                                "Contraseña",
                                 $event.target.value
                               )
                             }

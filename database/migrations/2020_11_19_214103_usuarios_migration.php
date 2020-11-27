@@ -24,7 +24,7 @@ class UsuariosMigration extends Migration
         $table->string('contraseña');
         $table->string('usuario');
         $table->integer('tipo_usuario_id')->unsigned();
-        $table->foreign('tipo_usuario_id')->references('id')->on('Tipos_Usuarios');
+        $table->foreign('tipo_usuario_id')->references('id')->on('Tipos_Usuarios')->onDelete('cascade');
         $table->timestamps();;
       });
 

@@ -48,14 +48,14 @@ class AlumnoMigration extends Migration
 
         $table->integer('id_padrefamilia')->unsigned();
 
-        $table->foreign('id_tipo_vialidad')->references('id')->on('Tipo_Vialidad');
-        $table->foreign('id_administracion_vialidad')->references('id')->on('Administracion_vialidad');
-        $table->foreign('id_transito')->references('id')->on('Transito');
-        $table->foreign('id_margen')->references('id')->on('Margen');
-        $table->foreign('id_tipo_asentamiento')->references('id')->on('Tipo_Asentamiento');
-        $table->foreign('id_referencia_1')->references('id')->on('Tipo_refenrencia');
-        $table->foreign('id_referencia_2')->references('id')->on('Tipo_refenrencia');
-        $table->foreign('id_referencia_3')->references('id')->on('Tipo_refenrencia');
+        $table->foreign('id_tipo_vialidad')->references('id')->on('Tipo_Vialidad')->onDelete('cascade');
+        $table->foreign('id_administracion_vialidad')->references('id')->on('Administracion_vialidad')->onDelete('cascade');
+        $table->foreign('id_transito')->references('id')->on('Transito')->onDelete('cascade');
+        $table->foreign('id_margen')->references('id')->on('Margen')->onDelete('cascade');
+        $table->foreign('id_tipo_asentamiento')->references('id')->on('Tipo_Asentamiento')->onDelete('cascade');
+        $table->foreign('id_referencia_1')->references('id')->on('Tipo_refenrencia')->onDelete('cascade');
+        $table->foreign('id_referencia_2')->references('id')->on('Tipo_refenrencia')->onDelete('cascade');
+        $table->foreign('id_referencia_3')->references('id')->on('Tipo_refenrencia')->onDelete('cascade');
 
 
 

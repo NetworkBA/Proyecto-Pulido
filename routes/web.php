@@ -20,6 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 
+
+Route::Post('/Clases.save', 'clases_controller@save');
+
 Route::get('/Clases', 'clases_controller@Clases');
 
 

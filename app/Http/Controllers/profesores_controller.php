@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class profesores_controller extends Controller
 {
@@ -25,9 +27,21 @@ class profesores_controller extends Controller
         $Administrativo->CURP = $request->CURP;
         $Administrativo->contraseña = $request->Contraseña;
         $Administrativo->usuario = $request->CURP;
+        $Administrativo->usuario = $request->email;
         $Administrativo->save();
 
         return $Administrativo;
+
+        $usuario = new User();
+        $usuario->name = $request->Nombre;
+        $usuario->email = $request->email;
+        $usuario->id_usuario = $Administrativo->id;
+        $usuario->id_rol = 3;
+        $usuario->id_Tipo_usuario = 3;
+
+        $usuario->password = Hash::make($request->contraseña);
+
+        $usuario->save();
     }
 
     public function edit(Request $request)
@@ -39,6 +53,14 @@ class profesores_controller extends Controller
           $Administrativo->CURP = $request->CURP;
 
           $Administrativo->save();
+
+          $usuario = User::where('id_usuario', $request->id)->get()->first();
+          $usuario->name = $request->Nombre;
+          $usuario->email = $request->email;
+
+          $usuario->password = Hash::make($request->contraseña);
+
+          $usuario->save();
 
 
           return $Administrativo;

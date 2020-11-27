@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ClasesMigration extends Migration
+class CursoMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class ClasesMigration extends Migration
      */
     public function up()
     {
-
-      Schema::create('Clases', function (Blueprint $table) {
+      Schema::create('Curso', function (Blueprint $table) {
 
         $table->engine = 'InnoDB';
         $table->increments('id');
-        $table->integer('id_Materia')->unsigned();
-        $table->integer('id_Profesor')->unsigned();
+        $table->integer('id_Clase')->unsigned();
+        $table->integer('id_Estudiante')->unsigned();
 
-        $table->foreign('id_Materia')->references('id')->on('Materias')->onDelete('cascade');
-        $table->foreign('id_Profesor')->references('id')->on('Usuarios')->onDelete('cascade');
+        $table->foreign('id_Clase')->references('id')->on('Clases')->onDelete('cascade');
+        $table->foreign('id_Estudiante')->references('id')->on('Estudiantes')->onDelete('cascade');
         $table->timestamps();
 
       });

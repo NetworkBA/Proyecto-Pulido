@@ -3,10 +3,24 @@
 @section('content')
 
 
+        @if (auth()->user()->id_rol == 1)
+        <menu-component> </menu-component>
 
+        @endif
+        @if (auth()->user()->id_rol == 2)
+        <menu-component> </menu-component>
 
+        @endif
+
+        @if (auth()->user()->id_rol == 3)
+        <menu-component> </menu-component>
+
+        @endif
+        @if (auth()->user()->id_rol == 4)
+        <menu-component> </menu-component>
+
+        @endif
       <!--Menu----------------------------------------------------->
-      <menu-component> </menu-component>
       <!--FIN Menu----------------------------------------------------->
 
 

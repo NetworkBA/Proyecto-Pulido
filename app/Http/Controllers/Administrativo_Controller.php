@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\User;
+
 
 class Administrativo_Controller extends Controller
 {
@@ -23,9 +27,22 @@ class Administrativo_Controller extends Controller
         $Administrativo->Apellido_P = $request->Apellido_P;
         $Administrativo->Apellido_M = $request->Apellido_M;
         $Administrativo->CURP = $request->CURP;
-        $Administrativo->contraseña = $request->Contraseña;
-        $Administrativo->usuario = $request->CURP;
+        $Administrativo->contraseña = $request->contraseña;
+        $Administrativo->usuario = $request->email;
         $Administrativo->save();
+
+        $usuario = new User();
+        $usuario->name = $request->Nombre;
+        $usuario->email = $request->email;
+        $usuario->id_usuario = $Administrativo->id;
+        $usuario->id_rol = 2;
+        $usuario->id_Tipo_usuario = 2;
+
+        $usuario->password = Hash::make($request->contraseña);
+
+        $usuario->save();
+
+
 
         return $Administrativo;
     }
@@ -36,10 +53,17 @@ class Administrativo_Controller extends Controller
           $Administrativo->Nombre = $request->Nombre;
           $Administrativo->Apellido_P = $request->Apellido_P;
           $Administrativo->Apellido_M = $request->Apellido_M;
+          $Administrativo->usuario = $request->email;
           $Administrativo->CURP = $request->CURP;
 
           $Administrativo->save();
 
+          $usuario = User::where('id_usuario', $request->id)->get()->first();
+          $usuario->name = $request->Nombre;
+          $usuario->email = $request->email;
+          $usuario->password = Hash::make($request->contraseña);
+
+          $usuario->save();
 
           return $Administrativo;
 
@@ -50,7 +74,8 @@ class Administrativo_Controller extends Controller
     {
           $Administrativo = Usuario::findOrFail($request->id);
           $Administrativo->delete();
-
+            $usuario = User::where('id_usuario', $request->id)->get()->first();
+            $usuario->delete();
           return 0;
     }
 }

@@ -235,6 +235,14 @@
                         </div>
                     </div>
 
+                    <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="text-input">Agregar Alumnos</label>
+                        <div class="col-md-9">
+                          
+
+                        </div>
+                    </div>
+
 
                 </form>
             </div>
