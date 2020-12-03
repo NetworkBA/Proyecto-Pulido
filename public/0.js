@@ -21,21 +21,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -67,52 +52,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("main", { staticClass: "main" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _c("h2", [_vm._v("Listado de Opciones")]),
-              _c("br")
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-lg btn-block",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Administrativo")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-secondary btn-lg btn-block",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Profesores")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-lg btn-block",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Alumnos")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-lg btn-block",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Clases ")]
-            )
-          ])
-        ])
-      ])
+      _c("main", { staticClass: "main" })
     ])
   }
 ]

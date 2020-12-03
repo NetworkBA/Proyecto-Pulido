@@ -21,7 +21,20 @@ Auth::routes();
 
 
 
+Route::Post('/EliinarActividad', 'clases_controller@EliinarActividad');
+
+Route::Post('/EditarActividad', 'clases_controller@EditarActividad');
+
+Route::Post('/traertareas', 'clases_controller@traertareas');
+Route::Post('AgregarActividad','clases_controller@AgregarActividad');
+
+Route::get('/getCursos', 'clases_controller@getCursos');
+
+
 Route::Post('/Clases.save', 'clases_controller@save');
+Route::Post('/Clases.alumnos', 'clases_controller@guardaralumnos');
+
+
 
 Route::get('/Clases', 'clases_controller@Clases');
 

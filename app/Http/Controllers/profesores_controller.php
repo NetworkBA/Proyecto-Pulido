@@ -16,6 +16,8 @@ class profesores_controller extends Controller
         return $Administrativo;
     }
 
+  
+
     public function store(Request $request)
     {
 
@@ -30,7 +32,6 @@ class profesores_controller extends Controller
         $Administrativo->usuario = $request->email;
         $Administrativo->save();
 
-        return $Administrativo;
 
         $usuario = new User();
         $usuario->name = $request->Nombre;
@@ -42,6 +43,8 @@ class profesores_controller extends Controller
         $usuario->password = Hash::make($request->contraseña);
 
         $usuario->save();
+
+        return $Administrativo;
     }
 
     public function edit(Request $request)
@@ -51,6 +54,8 @@ class profesores_controller extends Controller
           $Administrativo->Apellido_P = $request->Apellido_P;
           $Administrativo->Apellido_M = $request->Apellido_M;
           $Administrativo->CURP = $request->CURP;
+          $Administrativo->contraseña = $request->Contraseña;
+
 
           $Administrativo->save();
 

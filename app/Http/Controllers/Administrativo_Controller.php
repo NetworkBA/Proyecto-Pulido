@@ -32,6 +32,7 @@ class Administrativo_Controller extends Controller
         $Administrativo->save();
 
         $usuario = new User();
+        $usuario->id = $Administrativo->id;
         $usuario->name = $request->Nombre;
         $usuario->email = $request->email;
         $usuario->id_usuario = $Administrativo->id;
@@ -54,6 +55,7 @@ class Administrativo_Controller extends Controller
           $Administrativo->Apellido_P = $request->Apellido_P;
           $Administrativo->Apellido_M = $request->Apellido_M;
           $Administrativo->usuario = $request->email;
+          $Administrativo->contraseña = $request->contraseña;
           $Administrativo->CURP = $request->CURP;
 
           $Administrativo->save();

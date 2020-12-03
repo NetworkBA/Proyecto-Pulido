@@ -121,18 +121,18 @@
                 </div>
 
 
-                <form  method="post" enctype="multipart/form-data" class="form-horizontal"  v-on:submit.prevent="CrearAdministrador">
+                <form  method="post" enctype="multipart/form-data" class="form-horizontal" action="#"  >
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                         <div class="col-md-9">
-                            <input type="text"  v-model="administrativo.Nombre" class="form-control" placeholder="Ingrese el Nombre">
+                            <input type="text"  v-model="administrativo.Nombre" class="form-control" placeholder="Ingrese el Nombre" required>
 
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Apellido Paterno</label>
                         <div class="col-md-9">
-                        <input type="text" v-model="administrativo.Apellido_P" class="form-control" placeholder="Ingrese Apellido Paterno">
+                        <input type="text" v-model="administrativo.Apellido_P" class="form-control" placeholder="Ingrese Apellido Paterno" required>
                         </div>
                     </div>
 
@@ -146,28 +146,28 @@
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
                         <div class="col-md-9">
-                        <input type="email" v-model="administrativo.email" class="form-control" placeholder="Ingrese un correo electronico">
+                        <input type="email" v-model="administrativo.email" class="form-control" placeholder="Ingrese un correo electronico" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                         <div class="col-md-9">
-                        <input type="text" v-model="administrativo.CURP" class="form-control" placeholder="Ingrese CURP">
+                        <input type="text" v-model="administrativo.CURP" class="form-control" placeholder="Ingrese CURP" required maxlength="16" minlength="16">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
                         <div class="col-md-9">
-                        <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña">
+                        <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
                         <div class="col-md-9">
-                        <input type="password"   v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña">
+                        <input type="password"   v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña" required>
                         </div>
                     </div>
 
@@ -177,7 +177,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-2x"></i> Cerrar</button>
-                <button type="button" class="btn btn-success" @click="CrearAdministrador" ><i class="fa fa-save fa-2x"></i> Guardar</button>
+                <button type="submit"  class="btn btn-success" @click="CrearAdministrador" ><i class="fa fa-save fa-2x"></i> Guardar</button>
 
             </div>
         </div>
@@ -257,6 +257,20 @@
                               </div>
                           </div>
 
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña" readonly="readonly">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password"   v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña" readonly="readonly">
+                              </div>
+                          </div>
+
                           </form>
                       </div>
                       <div class="modal-footer">
@@ -292,7 +306,7 @@
                           </div>
 
 
-                          <form @submit.prevent="editmode" method="post" enctype="multipart/form-data" class="form-horizontal">
+                          <form  method="post" enctype="multipart/form-data" class="form-horizontal">
 
 
                           <div class="form-group row">
@@ -306,7 +320,7 @@
                           <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                               <div class="col-md-9">
-                                  <input type="text" id="Nombre_Modele" v-model="administrativo.Nombre "class="form-control" >
+                                  <input type="text" id="Nombre_Modele" v-model="administrativo.Nombre "class="form-control" required>
 
                               </div>
                           </div>
@@ -327,14 +341,28 @@
                           <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
                               <div class="col-md-9">
-                              <input type="text"  v-model="administrativo.email" class="form-control" >
+                              <input type="text"  v-model="administrativo.email" class="form-control"  required>
                               </div>
                           </div>
 
                           <div class="form-group row">
                               <label class="col-md-3 form-control-label" for="email-input">CURP</label>
                               <div class="col-md-9">
-                              <input type="text" id="CURP_Modele" v-model="administrativo.CURP" class="form-control" >
+                              <input type="text" id="CURP_Modele" v-model="administrativo.CURP" class="form-control" required maxlength="16" minlength="16">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña" required>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password"   v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña" required>
                               </div>
                           </div>
 
@@ -342,7 +370,7 @@
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-2x"></i> Cerrar</button>
-                          <button type="button" class="btn btn-success" @click="GuardarAdmi" ><i class="fa fa-save fa-2x"></i> Guardar</button>
+                          <button type="submit"  class="btn btn-success" @click="GuardarAdmi" ><i class="fa fa-save fa-2x"></i> Guardar</button>
 
 
                       </div>
@@ -421,6 +449,20 @@
                               </div>
                           </div>
 
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña" readonly="readonly">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
+                              <div class="col-md-9">
+                              <input type="password"   v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña" readonly="readonly">
+                              </div>
+                          </div>
+
                           </form>
                       </div>
                       <div class="modal-footer">
@@ -458,15 +500,25 @@
             editmode: false,
            admis: [],
            administrativo: {id: '',Nombre: '',Apellido_P: '', Apellido_M: '', CURP: '', Apellido_M: '', CURP:'', usuario: '',
-           Contraseña : ''},
+           Contraseña : '', Contraseña2: ''},
 
         }
     },
 
     methods:{
-    
+
     CrearAdministrador()
         {
+
+        if( this.administrativo.Nombre == "" || this.administrativo.Apellido_P == "" ||  this.administrativo.CURP == ""|| this.administrativo.email == "" || this.administrativo.Contraseña == "" || this.administrativo.Contraseña2 == "" )
+        {
+        alert('Debes completar los campos requeridos para poder guardar');
+        return;
+        }
+        else
+        {
+              if(this.administrativo.Contraseña ==  this.administrativo.Contraseña2)
+              {
           console.log(this.administrativo.Nombre, this.administrativo.Apellido_P, this.administrativo.Apellido_M, this.administrativo.CURP, this.administrativo.Contraseña);
           var urladmis = "Administrativo.Crear";
           const params = {
@@ -488,6 +540,13 @@
           });
           $('#abrirmodal2').modal('hide');
           this.limpiar();
+          }
+          else
+          {
+          alert('Debes las mismas contraseñas');
+          return;
+          }
+          }
 
         },
             getadmis(){
@@ -516,6 +575,8 @@
               $(Apellido_M_Model).val(adm.Apellido_M);
               $(CURP_Model).val(adm.CURP);
               this.administrativo.email = adm.usuario;
+              this.administrativo.Contraseña = adm.contraseña;
+              this.administrativo.Contraseña2 = adm.contraseña;
 
 
                 $('#vermodal').modal('show');
@@ -544,9 +605,18 @@
                 this.administrativo.CURP = admi.CURP;
                 this.administrativo.Apellido_P = admi.Apellido_P;
                 this.administrativo.email = admi.usuario;
+                this.administrativo.Contraseña = admi.contraseña;
+                this.administrativo.Contraseña2 = admi.contraseña;
                 $('#editarmodal').modal('show');
             },
             GuardarAdmi()
+            {
+            if(this.administrativo.id == "" || this.administrativo.Nombre == "" || this.administrativo.Apellido_P == "" ||  this.administrativo.CURP == ""|| this.administrativo.email == "" || this.administrativo.Contraseña == "" || this.administrativo.Contraseña2 == "" )
+            {
+            alert('Debes completar los campos requeridos para poder guardar');
+            return;
+            }
+            else
             {
                 this.editmode = true;
                 var urladmis = "Administrativo.Editar";
@@ -568,6 +638,7 @@
                   this.admis = response.data
                 });
                 $('#editarmodal').modal('hide');
+              }
             },
 
             eliminarmodal(admi)
@@ -580,6 +651,8 @@
             this.administrativo.CURP = admi.CURP;
             this.administrativo.Apellido_P = admi.Apellido_P;
             this.administrativo.email = admi.usuario;
+            this.administrativo.Contraseña = admi.contraseña;
+            this.administrativo.Contraseña2 = admi.contraseña;
             $('#eliminarmodal').modal('show');
             },
 

@@ -125,21 +125,28 @@
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                         <div class="col-md-9">
-                            <input type="text"  v-model="administrativo.Nombre" class="form-control" placeholder="Ingrese el Nombre">
+                            <input type="text"  v-model="administrativo.Nombre" class="form-control" placeholder="Ingrese el Nombre" required >
 
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Apellido Paterno</label>
                         <div class="col-md-9">
-                        <input type="text" v-model="administrativo.Apellido_P" class="form-control" placeholder="Ingrese Apellido Paterno">
+                        <input type="text" v-model="administrativo.Apellido_P" class="form-control" placeholder="Ingrese Apellido Paterno" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Apellido Materno</label>
                         <div class="col-md-9">
-                        <input type="text" v-model="administrativo.Apellido_M" class="form-control" placeholder="Ingrese Apellido Materno">
+                        <input type="text" v-model="administrativo.Apellido_M" class="form-control" placeholder="Ingrese Apellido Materno" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="email-input">Correo Electronico</label>
+                        <div class="col-md-9">
+                        <input type="email" v-model="administrativo.email" class="form-control" placeholder="Ingrese un correo electronico" required>
                         </div>
                     </div>
 
@@ -153,14 +160,14 @@
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Contraseña</label>
                         <div class="col-md-9">
-                        <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña">
+                        <input type="password" v-model="administrativo.Contraseña" class="form-control" placeholder="Ingrese Contraseña" required >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="email-input">Validación de Contraseña</label>
                         <div class="col-md-9">
-                        <input type="password" name= "Contraseña2" class="form-control" placeholder="Ingrese Contraseña">
+                        <input type="password" v-model="administrativo.Contraseña2" class="form-control" placeholder="Ingrese Contraseña" required >
                         </div>
                     </div>
 
@@ -429,8 +436,8 @@
         return{
             editmode: false,
            admis: [],
-           administrativo: {id: '',Nombre: '',Apellido_P: '', Apellido_M: '', CURP: '', Apellido_M: '', CURP:'',
-           Contraseña : ''},
+           administrativo: {id: '',Nombre: '',Apellido_P: '', Apellido_M: '', CURP: '', Apellido_M: '', email:'',
+           Contraseña : '',Contraseña2: ''},
 
         }
     },
@@ -443,7 +450,7 @@
           var urladmis = "Profesor.Crear";
           const params = {
           Nombre: this.administrativo.Nombre ,Apellido_P: this.administrativo.Apellido_P, Apellido_M: this.administrativo.Apellido_M, CURP: this.administrativo.CURP,
-           Contraseña: this.administrativo.Contraseña
+           Contraseña: this.administrativo.Contraseña, email: this.administrativo.email
           }
           axios.post(urladmis,params)
           this.$forceUpdate();

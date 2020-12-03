@@ -13,7 +13,7 @@
         @endif
 
         @if (auth()->user()->id_rol == 3)
-        <menu-component> </menu-component>
+        <menu-componentx> </menu-componentx>
 
         @endif
         @if (auth()->user()->id_rol == 4)

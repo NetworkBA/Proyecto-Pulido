@@ -46,6 +46,13 @@ Vue.component('PradredeFamili', require('./views/PradresdeFamilia.vue').default)
 Vue.component('Estudiantes', require('./views/Estudiantes.vue').default);
 Vue.component('Materias', require('./views/Materias.vue').default);
 Vue.component('Clases', require('./views/Clases.vue').default);
+Vue.component('menu-Profesor', require('./components/MenuProfesor.vue').default);
+Vue.component('VistaProfe', require('./views/VistaProfe.vue').default);
+
+Vue.component('menu-componentx', require('./components/MenuProfesor.vue').default);
+
+
+
 
 
 
